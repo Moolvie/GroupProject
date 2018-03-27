@@ -13,15 +13,15 @@ else {
 		 " VALUES (NULL, '" . $ArtistName. "');";
 	$DBConnect->query($ADDartist);
 
-	$ANumber = "Select ArtistID from Artist where ArtistName = '" . $ArtistName . "';";
-	$ANumber = '"'. $ANumber . '"';
-	echo "<p>$ANumber</p>\n";
+	$ANumber = "Select ArtistID from Artist where ArtistName = '" . $ArtistName . "'";
+	
+	$result = $DBConnect->query($ANumber);
 
-	$result = mysqli_query($DBConnect, $ANumber);
-	echo "<p>The Query result is $result[0] </p>\n";	
+	$ArtistNumber = $result->fetch_assoc();
+	
 	$ADDSongTitle ="INSERT INTO Song" ." (SongID, ArtistID, SongTitle, SongLength)" .
-		" VALUES (NULL, " . $result[0] . ",'" . $SongTitle . "','" . $SongLength . "')";
-	echo "<p>$ADDSongTitle</p>\n";
+		" VALUES (NULL, " . $ArtistNumber['ArtistID'] . ", '" . $SongTitle . "', '" . $SongLength . "')";
+	
 	$DBConnect->query($ADDSongTitle);
 }
 ?>
