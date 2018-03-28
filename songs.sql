@@ -38,24 +38,3 @@ CREATE TABLE IF NOT EXISTS Customer (
 	 Zipcode VARCHAR(20),
 	 PRIMARY KEY (CustomerID)
 );
-INSERT INTO Artist (ArtistID, ArtistName)
-	 VALUES(NULL, 'Ben Platt & Lin Manuel Miranda');
-INSERT INTO Artist (ArtistID, ArtistName)
-	 VALUES(NULL, 'Bebe Rexha');
-INSERT INTO Artist (ArtistID, ArtistName)
-	 VALUES(NULL, 'Bad Wolves');
-INSERT INTO Artist (ArtistID, ArtistName)
-	 VALUES(NULL, 'Image Dragons');
-INSERT INTO Artist (ArtistID, ArtistName)
-	 VALUES(NULL, 'Zedd, Maren Morris & Grey');
-
-INSERT INTO Song (SongID, ArtistID, SongTitle, SongLength)
-	 VALUES(NULL,1, 'Found / Tonight','3:00');	
-INSERT INTO Song (SongID, ArtistID, SongTitle, SongLength)
-	 VALUES(NULL,2, 'Meant to Be','3:00');	
-INSERT INTO Song (SongID, ArtistID, SongTitle, SongLength)
-	 VALUES(NULL,3, 'Zombie','3:00');	
-INSERT INTO Song (SongID, ArtistID, SongTitle, SongLength)
-	 VALUES(NULL,4, 'Whatever It Takes','3:00');	
-INSERT INTO Song (SongID, ArtistID, SongTitle, SongLength)
-	 VALUES(NULL,5, 'The Middle','3:00');	
