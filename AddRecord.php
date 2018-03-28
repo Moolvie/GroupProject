@@ -6,7 +6,7 @@ $AlbumTitle = $_POST['AlbumTitle'];
 $SongLength = $_POST['SongLength'];
 
 
-$DBConnect = mysqli_connect("localhost","root","crumplebatverifytree", $DBName);
+$DBConnect = mysqli_connect("localhost","root","<PASSWORD>", $DBName);
 if ($DBConnect === FALSE)
 	echo "<p>Connect error: " . mysqli_error() . "</p>\n";
 else {
