@@ -10,7 +10,7 @@ $SongTitle = mysqli_real_escape_string($SongTitle);
 $AlbumTitle = mysqli_real_escape_string($AlbumTitle);
 $SongLength = mysqli_real_escape_string($SongLength);
  
-$DBConnect = mysqli_connect("localhost","root","crumplebatverifytree", $DBName);
+$DBConnect = mysqli_connect("localhost","root","", $DBName);
 if ($DBConnect === FALSE)
 	echo "<p>Connect error: " . mysqli_error() . "</p>\n";
 else {
