@@ -5,8 +5,12 @@ $SongTitle = $_POST['SongTitle'];
 $AlbumTitle = $_POST['AlbumTitle'];
 $SongLength = $_POST['SongLength'];
 
-
-$DBConnect = mysqli_connect("localhost","root","<PASSWORD>", $DBName);
+$ArtistName = mysqli_real_escape_string($ArtistName);
+$SongTitle = mysqli_real_escape_string($SongTitle);
+$AlbumTitle = mysqli_real_escape_string($AlbumTitle);
+$SongLength = mysqli_real_escape_string($SongLength);
+ 
+$DBConnect = mysqli_connect("localhost","root","crumplebatverifytree", $DBName);
 if ($DBConnect === FALSE)
 	echo "<p>Connect error: " . mysqli_error() . "</p>\n";
 else {
