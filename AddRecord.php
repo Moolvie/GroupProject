@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 $DBName = "Songs";
 $ArtistName = $_POST['ArtistName'];
@@ -18,51 +19,30 @@ else {
 	$ADDartist = "INSERT INTO Artist" . " (ArtistID, ArtistName)" .
 		 " VALUES (NULL, '" . $ArtistName. "');";
 
-	// Add artist name to Artist table
-	$DBConnect->query($ADDartist);
-	
-	// Build query to grab the newly created ArtistID 
-	$ANumber = "Select ArtistID from Artist where ArtistName = '" . $ArtistName . "'";
-	
-	// run query and store result
-	$result = $DBConnect->query($ANumber);
-	
-	// convert result to an associatve array
-	$ArtistNumber = $result->fetch_assoc();
+	// Get generated ArtistId
+	$ArtistNumber = mysqli_insert_id($DBConnect);
 	
 	// Build query for Song Table
 	$ADDSongTitle ='INSERT INTO Song' .' (SongID, ArtistID, SongTitle, SongLength)' .
-		' VALUES (NULL, ' . $ArtistNumber['ArtistID'] . ', "' . $SongTitle .
+		' VALUES (NULL, ' . $ArtistNumber . ', "' . $SongTitle .
 		 '", "' . $SongLength . '")';
 	// run query 
 	$DBConnect->query($ADDSongTitle);
 
+	// Get generated SongID
+	$SongNumber = mysqli_insert_id($DBConnect);
+
 	// build query for Album
 	$ADDalbum = "INSERT INTO Album" . " (AlbumID, AlbumName, ArtistID)" .
-		" VALUES (NULL, '" . $AlbumTitle . "', " . $ArtistNumber['ArtistID'] . ")";
+		" VALUES (NULL, '" . $AlbumTitle . "', " . $ArtistNumber . ")";
 	$DBConnect->query($ADDalbum);
 
-	// Build query to grab newly created AlbumID
-	$Album_ID = "SELECT AlbumID FROM Album WHERE AlbumName = '" .  $AlbumTitle . "'";
-	
-	// run query and store result
-	$result = $DBConnect->query($Album_ID);
-	
-	// convert result to an associatve array
-	$AlbumNumber = $result->fetch_assoc();
-
-	// build query to grab SongID from Songs
-	$Song_ID = 'SELECT SongID FROM Song WHERE SongTitle = "' . $SongTitle . '"';
-
-	// run query and store result
-	$result = $DBConnect->query($Song_ID);
-
-	// convert result to an associative array
-	$SongNumber = $result->fetch_assoc();
+	// Get generated AlbumID 
+	$AlbumNumber = myqli_insert_id($DBConnect);
 
         // build query to store AlbumID and SongID in AlbumSong
 	$ADDalbumInfo = "INSERT INTO AlbumSong" . " (AlbumID, SongID)" . " VALUES (" .
-		$AlbumNumber['AlbumID'] . ", " . $SongNumber['SongID'] . ")";
+		$AlbumNumber . ", " . $SongNumber . ")";
 
 	// run the query
 	$DBConnect->query($ADDalbumInfo);
@@ -71,3 +51,35 @@ else {
 	mysqli_close($DBConnect);
 }
 ?>
+<html>
+<head>
+</head>
+<style>
+label {
+   display: inline-block;
+   width: 100px;
+}
+</style>
+<body>
+<form method="POST" action="AddRecord.php">
+<p>
+<label>Artist Name: </label>
+<input type="text" name="ArtistName">
+</p>
+<p>
+<label>Song Title:</label>
+<input type="text" name="SongTitle">
+</p>
+<p>
+<label>Album Title:</label>
+<input type="text" name="AlbumTitle">
+</p>
+<p>
+<label>Song Duration:</label>
+<input type="text" name="SongLength">
+</p>
+<label><label>
+<input type="submit" name="Submit">
+</form>
+</body>
+</html>
