@@ -2,22 +2,22 @@
 <HTML>
 <HEAD>
 </HEAD>
-<STYLE>
-LABEL {
-   DISPLAY: INLINE-BLOCK;
-   WIDTH: 100px;
+<style>
+ label {
+    display: inline-block;
+    width: 100px;
 }
-</STYLE>
+</style>
 <BODY>
 <H3>Add Song to Database</H3>
 <FORM METHOD="POST" ACTION="AddRecord.php"
 <p>
 <LABEL>Artist Name</LABEL>
-<INPUT TYPE="text" name="ArtistName" required>
+<INPUT TYPE="text" name="ArtistName">
 </p>
 <p>
 <LABEL>Song Title</Label>
-<INPUT type="text" name="SongTitle" required>
+<INPUT type="text" name="SongTitle" >
 </p>
 <p>
 <LABEL>Album Title</LABEL>
@@ -25,9 +25,9 @@ LABEL {
 </p>
 <p>
 <LABEL>Song Duration</LABEL>
-<INPUT type="text" name="SongLength" required>
+<INPUT type="text" name="SongLength" >
 </p>
-<LABEL></LABEl>
+<label></label>
 <INPUT type="submit" name="Submit">
 </FORM>
 </BODY>
