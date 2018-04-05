@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<html>
+<head>
+</head>
+<style>
+label {
+   display: inline-block;
+   width: 100px;
+}
+</style>
+<body>
 <?php
 $DBName = "Songs";
 $ArtistName = $_POST['ArtistName'];
@@ -6,10 +16,6 @@ $SongTitle = $_POST['SongTitle'];
 $AlbumTitle = $_POST['AlbumTitle'];
 $SongLength = $_POST['SongLength'];
 
-$ArtistName = mysqli_real_escape_string($ArtistName);
-$SongTitle = mysqli_real_escape_string($SongTitle);
-$AlbumTitle = mysqli_real_escape_string($AlbumTitle);
-$SongLength = mysqli_real_escape_string($SongLength);
  
 $DBConnect = mysqli_connect("localhost","root","", $DBName);
 if ($DBConnect === FALSE)
@@ -51,16 +57,6 @@ else {
 	mysqli_close($DBConnect);
 }
 ?>
-<html>
-<head>
-</head>
-<style>
-label {
-   display: inline-block;
-   width: 100px;
-}
-</style>
-<body>
 <form method="POST" action="AddRecord.php">
 <p>
 <label>Artist Name: </label>
