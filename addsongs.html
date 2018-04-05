@@ -2,17 +2,33 @@
 <HTML>
 <HEAD>
 </HEAD>
+<STYLE>
+LABEL {
+   DISPLAY: INLINE-BLOCK;
+   WIDTH: 100px;
+}
+</STYLE>
 <BODY>
+<H3>Add Song to Database</H3>
 <FORM METHOD="POST" ACTION="AddRecord.php"
-<LABEL>Artist Name</LABEL><BR/>
-<INPUT TYPE="text" name="ArtistName" required><BR/>
-<LABEL>Song Title</Label><BR/>
-<INPUT type="text" name="SongTitle" required><br/>
-<LABEL>Album Title</LABEL><BR/>
-<INPUT type="text" name="AlbumTitle"><br/>
-<LABEL>Song Duration</LABEL><br/>
-<INPUT type="text" name="SongLength" required><br/>
-<INPUT type="submit" name="Submit"><br/>
+<p>
+<LABEL>Artist Name</LABEL>
+<INPUT TYPE="text" name="ArtistName" required>
+</p>
+<p>
+<LABEL>Song Title</Label>
+<INPUT type="text" name="SongTitle" required>
+</p>
+<p>
+<LABEL>Album Title</LABEL>
+<INPUT type="text" name="AlbumTitle">
+</p>
+<p>
+<LABEL>Song Duration</LABEL>
+<INPUT type="text" name="SongLength" required>
+</p>
+<LABEL></LABEl>
+<INPUT type="submit" name="Submit">
 </FORM>
 </BODY>
 </HTML>
